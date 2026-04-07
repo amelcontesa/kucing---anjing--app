@@ -1,20 +1,11 @@
 import streamlit as st
-from PIL import Image
-import numpy as np
 
+st.title("Aplikasi Klasifikasi Kucing vs Anjing 🐱🐶")
 
-st.title("Klasifikasi Kucing vs Anjing")
+uploaded_file = st.file_uploader("Upload gambar", type=["jpg", "png", "jpeg"])
 
-file = st.file_uploader("Upload gambar", type=["jpg","png","jpeg"])
-
-if file:
-    img = Image.open(file).resize((150,150))
-    img_array = np.array(img)/255.0
-    img_array = np.expand_dims(img_array, axis=0)
-
-    pred = model.predict(img_array)
-
-    if pred[0][0] > 0.5:
-        st.success("🐶 Ini adalah ANJING (Label: 1)")
-    else:
-        st.success("🐱 Ini adalah KUCING (Label: 0)")
+if uploaded_file is not None:
+    st.image(uploaded_file, caption="Gambar yang diupload", use_column_width=True)
+    
+    st.write("### Hasil Prediksi:")
+    st.success("Ini contoh hasil (dummy): Kucing 🐱")
