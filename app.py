@@ -1,9 +1,7 @@
 import streamlit as st
-import tensorflow as tf
 from PIL import Image
 import numpy as np
 
-model = tf.keras.models.load_model("model_kucing_anjing.h5")
 
 st.title("Klasifikasi Kucing vs Anjing")
 
